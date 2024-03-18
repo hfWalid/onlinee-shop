@@ -1,0 +1,21 @@
+# Server Configuration
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: optional:config-server:http://localhost:8082
+
+# Enable all endpoints
+management:
+  endpoint:
+    health:
+      show-details: always
+      roles: ADMIN
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator

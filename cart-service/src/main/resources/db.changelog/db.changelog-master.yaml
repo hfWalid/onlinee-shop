@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      author: walid hefhaf
+      file: db.changelog/scripts/init_create_tables.sql
