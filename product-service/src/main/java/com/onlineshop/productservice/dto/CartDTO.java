@@ -1,5 +1,6 @@
 package com.onlineshop.productservice.dto;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
@@ -14,23 +15,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductDTO {
+public class CartDTO {
 
-    @Null(message = "Product ID should not be provided for new events")
+    @Null(message = "Cart ID should not be provided for new events")
     private Long id;
 
-
-    @Null(message = "Cart ID should not be provided for new events")
-    private String name;
-
-    @Null(message = "Cart ID should not be provided for new events")
-    private String description;
-
-    @Null(message = "Cart ID should not be provided for new events")
-    private Long price;
-
-    @Null(message = "Cart ID should not be provided for new events")
-    private Integer stockQuantity;
     @NotNull(message = "Creation time is required")
     @PastOrPresent(message = "Creation time must be in the past or present")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -40,3 +29,4 @@ public class ProductDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedAt;
 }
+

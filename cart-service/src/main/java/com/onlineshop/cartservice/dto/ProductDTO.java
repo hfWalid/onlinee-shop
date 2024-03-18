@@ -1,4 +1,5 @@
-package com.onlineshop.productservice.dto;
+package com.onlineshop.cartservice.dto;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotNull;
@@ -38,5 +39,6 @@ public class ProductDTO {
     @NotNull(message = "Update time is required")
     @PastOrPresent(message = "Update time must be in the past or present")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime updatedAt;
+    private LocalDateTime updated_at;
 }
+
