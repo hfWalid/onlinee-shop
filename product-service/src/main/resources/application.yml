@@ -15,7 +15,7 @@ spring:
 
   # DataSource Configuration for PostgreSQL DB
   datasource:
-    url: jdbc:postgresql://localhost:5432/online_shop_db
+    url: jdbc:postgresql://localhost:5432/product_db
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
