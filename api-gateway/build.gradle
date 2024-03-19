@@ -29,11 +29,15 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.netflix.eureka/eureka-client-jersey3
 	implementation group: 'com.netflix.eureka', name: 'eureka-client-jersey3', version: '2.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.2.3'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '3.2.3'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '3.2.3'
 }
 
 dependencyManagement {
 	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.0"
 	}
 }
 
