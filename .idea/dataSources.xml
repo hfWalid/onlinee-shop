@@ -13,7 +13,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="cart_db" uuid="a7f8f8a8-f9fc-4375-87cf-75c7ec628d8e">
+    <data-source source="LOCAL" name="cart_db" uuid="4d515e96-f146-4c8c-a0a0-738b261409f8">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

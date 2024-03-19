@@ -1,4 +1,4 @@
-package com.onlineshop.productservice.common.dto.dto;
+package com.onlineshop.productservice.common.dto;
 
 
 import lombok.AllArgsConstructor;

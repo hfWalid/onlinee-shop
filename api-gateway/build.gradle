@@ -23,9 +23,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '4.1.0'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-gateway', version: '4.1.1'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '4.1.0'
 	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+	// https://mvnrepository.com/artifact/com.netflix.eureka/eureka-client-jersey3
+	implementation group: 'com.netflix.eureka', name: 'eureka-client-jersey3', version: '2.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

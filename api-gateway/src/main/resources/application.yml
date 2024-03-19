@@ -1,12 +1,10 @@
-# Server Configuration
-server:
-  port: 8080
-
 spring:
+  main:
+    web-application-type: reactive
   application:
     name: api-gateway
   config:
-    import: optional:config-server:http://localhost:8082
+    import: optional:configserver:http://localhost:8888
 
 # Enable all endpoints
 management:

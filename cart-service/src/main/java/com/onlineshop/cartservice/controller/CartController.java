@@ -31,9 +31,9 @@ public class CartController {
                 .createdAt(LocalDateTime.of(2024, Month.JANUARY, 29, 19, 30, 40))
                 .updatedAt(LocalDateTime.of(2024, Month.MARCH, 1, 19, 30, 40))
                 .build();
-        //cartService.getCartById(cartId);
+        CartDTO cartWithProducts = cartService.getCartWithProducts(cartId);
         if (cart != null) {
-            return new ResponseObject<>(true, "Cart retrieved successfully", cart);
+            return new ResponseObject<>(true, "Cart retrieved successfully", cartWithProducts);
         } else {
             return new ResponseObject<>(false, "Cart not found", null);
         }

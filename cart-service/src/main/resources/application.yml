@@ -1,21 +1,19 @@
-# Server Configuration
-server:
-  port: 8086
-
 spring:
   application:
     name: cart-service
+  config:
+    import: optional:configserver:http://localhost:8888
+
+server:
+  port: 8070
 
   # Aspect Logging Configuration
   aop:
     auto: true
 
-  config:
-    import: optional:config-server:http://localhost:8082
-
   # DataSource Configuration for PostgreSQL DB
   datasource:
-    url: jdbc:postgresql://localhost:5432/carts_db
+    url: jdbc:postgresql://localhost:5432/cart_db
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
@@ -39,17 +37,6 @@ spring:
     enabled: true
     default-schema: public
 
-# Enable all endpoints
-management:
-  endpoint:
-    health:
-      show-details: always
-      roles: ADMIN
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      base-path: /actuator
-
-# Factory annotation values
-  #application:
+application:
+  config:
+    products-url: http://localhost:8090/api/v1/products

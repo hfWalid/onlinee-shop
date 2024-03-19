@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Getter
@@ -26,4 +27,6 @@ public class CartDTO {
     @PastOrPresent(message = "Update time must be in the past or present")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedAt;
+
+    private List<ProductDTO> products;
 }

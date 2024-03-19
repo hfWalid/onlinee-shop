@@ -1,55 +1,6 @@
-# Server Configuration
-server:
-  port: 8085
-
 spring:
   application:
     name: product-service
 
-  # Aspect Logging Configuration
-  aop:
-    auto: true
-
   config:
-    import: optional:config-server:http://localhost:8082
-
-  # DataSource Configuration for PostgreSQL DB
-  datasource:
-    url: jdbc:postgresql://localhost:5432/product_db
-    username: postgres
-    password: root
-    driver-class-name: org.postgresql.Driver
-
-  # JPA/Hibernate Configuration
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  # Liquibase Configuration
-  liquibase:
-    change-log: classpath:db.changelog/db.changelog-master.yaml
-    drop-first: false
-    enabled: true
-    default-schema: public
-
-# Enable all endpoints
-management:
-  endpoint:
-    health:
-      show-details: always
-      roles: ADMIN
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      base-path: /actuator
-
-# Factory annotation values
-  #application:
+    import: optional:configserver:http://localhost:8888

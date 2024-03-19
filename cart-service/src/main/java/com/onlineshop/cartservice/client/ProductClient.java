@@ -10,6 +10,6 @@ import java.util.List;
 @FeignClient(name = "product-service", url = "${application.config.products-url}")
 public interface ProductClient {
 
-    @GetMapping("api/v1/carts/{cart-id}")
-    List<ProductDTO> findAllProductsByCartId(@PathVariable("cart-id") Integer cartId);
+    @GetMapping("/cart/{cartId}")
+    List<ProductDTO> findAllProductsByCartId(@PathVariable("cartId") Long cartId);
 }

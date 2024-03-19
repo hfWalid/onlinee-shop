@@ -39,6 +39,6 @@ public class ProductDTO {
     @NotNull(message = "Update time is required")
     @PastOrPresent(message = "Update time must be in the past or present")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 }
 
