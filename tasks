@@ -1,0 +1,13 @@
+Architecture:
+    - Add Profile and roles for the communication with Identity Provider
+    - Implement CQRS for a specific microservice in graphQl with mongoDB.
+    - Build a proper and a specific jenkins pipeline for each microservice
+    - Docker and Kubernetes containers orchestration.
+    - Implement
+
+Monolithic:
+    - Enable Cache on every microservice that queries a db.
+    - Implement possible apis + Filtering/Pagination.
+    - Implement Import/Export of files.
+    - Implement unit/Integration tests.
+    - Implement Async calls for autocompletion
