@@ -2,7 +2,7 @@ eureka:
   client:
     register-with-eureka: false
 server:
-  port: 8222
+  port: 9000
 spring:
   application:
     name: api-gateway

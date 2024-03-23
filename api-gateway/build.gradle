@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
+	withJavadocJar()
 }
 
 repositories {
@@ -26,12 +27,10 @@ dependencies {
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '4.1.0'
 	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
-	// https://mvnrepository.com/artifact/com.netflix.eureka/eureka-client-jersey3
 	implementation group: 'com.netflix.eureka', name: 'eureka-client-jersey3', version: '2.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.2.3'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '3.2.3'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '3.2.3'
 }
 

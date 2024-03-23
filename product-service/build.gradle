@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
     sourceCompatibility = '17'
+    withJavadocJar()
 }
 
 configurations {
@@ -42,6 +43,8 @@ dependencies {
     implementation 'org.liquibase:liquibase-core'
     implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.2'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.2'
 }
 
 dependencyManagement {
@@ -50,6 +53,14 @@ dependencyManagement {
     }
 }
 
-/*tasks.named('test') {
-    useJUnitPlatform()
+/*tasks {
+    test {
+        useJUnitPlatform()
+        group = "product-service"
+        description = "runs all service tests"
+        dependsOn("testClasses")
+        filter {
+            includeTestsMatching("com.onlineshop.productservice.service")
+        }
+    }
 }*/
