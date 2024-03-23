@@ -13,6 +13,21 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cart-service" target="17" />
+      <module name="cartservice" target="17" />
+      <module name="cartservice.test" target="17" />
+      <module name="com.onlineshop.api-gateway" target="17" />
+      <module name="com.onlineshop.api-gateway.main" target="17" />
+      <module name="com.onlineshop.api-gateway.test" target="17" />
+      <module name="com.onlineshop.cartservice.main" target="17" />
+      <module name="config-server" target="17" />
+      <module name="config-server.main" target="17" />
+      <module name="config-server.test" target="17" />
+      <module name="discovery" target="17" />
+      <module name="discovery.main" target="17" />
+      <module name="discovery.test" target="17" />
+      <module name="onlineshop.product-service" target="17" />
+      <module name="onlineshop.product-service.main" target="17" />
+      <module name="onlineshop.product-service.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
