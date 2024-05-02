@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cartservice.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cartservice.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/micro.iml" filepath="$PROJECT_DIR$/.idea/micro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cart-service/micro.cart-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cart-service/micro.cart-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/product-service/micro.product-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/product-service/micro.product-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/product-service.iml" filepath="$PROJECT_DIR$/.idea/modules/product-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/product-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/product-service.main.iml" />
     </modules>

@@ -1,3 +1,7 @@
+x-discoverable-microservice-depends-on: &discoverable-microservice-depends-on
+  - postgresql
+  - config-server
+
 services:
   postgresql:
     container_name: postgresql
@@ -12,9 +16,12 @@ services:
     volumes:
       - postgres:/data/postgres
     networks:
-      - postgres
+      - online-shop
     healthcheck:
-      test: "EXIT 0"
+      test: [ "CMD-SHELL", "pg_isready -p 6432" ]
+      interval: 5s
+      timeout: 5s
+      retries: 3
     logging:
       options:
         max-size: 10m
@@ -27,30 +34,110 @@ services:
     ports:
       - "9411:9411"
     networks:
-      - zipkin
+      - online-shop
+
   jenkins:
     container_name: jenkins
     image: jenkins/jenkins
     restart: unless-stopped
     ports:
-      - "8020:8080"
+      - "8020:8020"
     volumes:
       - jenkins_home:/var/jenkins_home
     networks:
-      - jenkins
+      - online-shop
     logging:
       options:
         max-size: 10m
         max-file: "13"
 
+  redis:
+    container_name: redis
+    image: redis
+    command: redis-server
+    restart: always
+    volumes:
+      - redis_volume_data:/data
+    ports:
+      - 6379:6379
+    networks:
+      - online-shop
+    environment:
+      - REDIS_PASSWORD=root
+      - REDIS_REPLICATION_mode=master
+    logging:
+      options:
+        max-size: 10m
+        max-file: "13"
+
+  redis_insight:
+    container_name: redis_insight
+    image: redislabs/redisinsight
+    restart: always
+    ports:
+      - 5540:5540
+    volumes:
+      - redis_insight_volume_data:/db
+    networks:
+      - online-shop
+    logging:
+      options:
+        max-size: 10m
+        max-file: "13"
+
+  config-server:
+    container_name: config-server
+    image: amazoncorretto:17-alpine
+    ports:
+      - "8888:8888"
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    networks:
+      - online-shop
+
+  discovery:
+    container_name: discovery
+    image: amazoncorretto:17-alpine
+    ports:
+      - "8761:8761"
+    depends_on: *discoverable-microservice-depends-on
+    networks:
+      - online-shop
+
+  api-gateway:
+    container_name: api-gateway
+    image: amazoncorretto:17-alpine
+    ports:
+      - "8081:8081"
+    depends_on: *discoverable-microservice-depends-on
+    networks:
+      - online-shop
+
+  cart-service:
+    container_name: cart-service
+    image: amazoncorretto:17-alpine
+    ports:
+      - "8070:8070"
+    depends_on: *discoverable-microservice-depends-on
+    networks:
+      - online-shop
+  product-service:
+    container_name: product-service
+    image: amazoncorretto:17-alpine
+    ports:
+      - "8090:8090"
+    depends_on: *discoverable-microservice-depends-on
+    networks:
+      - online-shop
+
 networks:
-  postgres:
+  online-shop:
     driver: bridge
-  zipkin:
-    driver: bridge
-  jenkins:
-    driver: bridge
+
 
 volumes:
   jenkins_home:
   postgres:
+  redis_volume_data:
+  redis_insight_volume_data:

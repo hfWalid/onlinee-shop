@@ -7,20 +7,21 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Date;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/v1/carts")
 @AllArgsConstructor
 public class CartController {
     private final CartService cartService;
+    private final MessageSource messageSource;
 
     @GetMapping("/{cartId}")
     @Operation(summary = "Cart retrieve", description = "Get an Cart by providing its id", tags = { "GET" })
@@ -37,5 +38,13 @@ public class CartController {
         } else {
             return new ResponseObject<>(false, "Cart not found", null);
         }
+    }
+
+    @GetMapping("/locale")
+    public String sayHello(
+            @RequestHeader(name="Accept-Language", required= false)
+            Locale locale
+    ){
+        return messageSource.getMessage("common.hello", null, LocaleContextHolder.getLocale());
     }
 }

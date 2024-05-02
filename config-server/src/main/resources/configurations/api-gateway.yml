@@ -1,9 +1,13 @@
 eureka:
   client:
-    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+
 server:
-  port: 9000
+  port: 8081
 spring:
+  main:
+    web-application-type: reactive
   application:
     name: api-gateway
   cloud:
@@ -20,8 +24,23 @@ spring:
           uri: http://localhost:8070
           predicates:
             - Path=/api/v1/carts/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8050/realms/online-shop
+
 
 management:
+  endpoint:
+    health:
+      show-details: always
+      roles: ADMIN
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
   tracing:
     sampling:
       probability: 1.0

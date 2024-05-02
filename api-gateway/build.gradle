@@ -25,6 +25,7 @@ dependencies {
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '4.1.0'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-gateway', version: '4.1.1'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '4.1.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
 	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 	implementation group: 'com.netflix.eureka', name: 'eureka-client-jersey3', version: '2.0.0'
@@ -32,6 +33,8 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.2.3'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-resource-server', version: '3.2.3'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '3.2.3'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-zuul', version: '2.2.10.RELEASE'
+
 }
 
 dependencyManagement {

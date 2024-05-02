@@ -4,39 +4,6 @@ spring:
   config:
     import: optional:configserver:http://localhost:8888
 
-server:
-  port: 8070
-
-  # Aspect Logging Configuration
-  aop:
-    auto: true
-
-  # DataSource Configuration for PostgreSQL DB
-  datasource:
-    url: jdbc:postgresql://localhost:5432/cart_db
-    username: postgres
-    password: root
-    driver-class-name: org.postgresql.Driver
-
-  # JPA/Hibernate Configuration
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  # Liquibase Configuration
-  liquibase:
-    change-log: classpath:db.changelog/db.changelog-master.yaml
-    drop-first: false
-    enabled: true
-    default-schema: public
-
 application:
   config:
     products-url: http://localhost:8090/api/v1/products

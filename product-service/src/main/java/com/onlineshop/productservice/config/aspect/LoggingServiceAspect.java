@@ -5,10 +5,12 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
+//@Profile("DEV")
 public class LoggingServiceAspect {
     private static final Logger logger = LoggerFactory.getLogger(LoggingServiceAspect.class);
 
