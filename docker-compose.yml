@@ -1,6 +1,7 @@
 x-discoverable-microservice-depends-on: &discoverable-microservice-depends-on
   - postgresql
   - config-server
+  - discovery
 
 services:
   postgresql:
@@ -124,7 +125,7 @@ services:
       - online-shop
   product-service:
     container_name: product-service
-    image: amazoncorretto:17-alpine
+    image: openjdk:17.0.1-jdk-oracle
     ports:
       - "8090:8090"
     depends_on: *discoverable-microservice-depends-on
